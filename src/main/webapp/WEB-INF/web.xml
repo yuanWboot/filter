@@ -7,9 +7,9 @@
         <filter-name>firstFilter</filter-name>
         <filter-class>com.zy.filter.FirstFilter</filter-class>
     </filter>
-    <servlet-mapping>
-        <servlet-name>firstFilter</servlet-name>
+    <filter-mapping>
+        <filter-name>firstFilter</filter-name>
 <!--        /*对所有请求进行拦截-->
         <url-pattern>/*</url-pattern>
-    </servlet-mapping>
+    </filter-mapping>
 </web-app>
