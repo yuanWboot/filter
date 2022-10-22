@@ -16,6 +16,11 @@
     <filter>
         <filter-name>characterEncodingFilter</filter-name>
         <filter-class>com.zy.filter.CharacterEncodingFilter</filter-class>
+        <!--    过滤器参数化-->
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
     </filter>
     <filter-mapping>
         <filter-name>characterEncodingFilter</filter-name>
