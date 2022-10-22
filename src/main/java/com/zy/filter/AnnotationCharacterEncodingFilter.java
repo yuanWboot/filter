@@ -7,11 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebFilter(filterName = "acef", urlPatterns = "/*",
-initParams = {
-        @WebInitParam(name = "encoding",value = "UTF-8"),
-        @WebInitParam(name = "k1",value = "v1")
-})
+//@WebFilter(filterName = "acef", urlPatterns = "/*",
+//initParams = {
+//        @WebInitParam(name = "encoding",value = "UTF-8"),
+//        @WebInitParam(name = "k1",value = "v1")
+//})
 public class AnnotationCharacterEncodingFilter implements Filter {
     private String encoding;
     @Override
