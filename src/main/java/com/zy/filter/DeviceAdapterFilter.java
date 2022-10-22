@@ -20,6 +20,10 @@ public class DeviceAdapterFilter implements Filter {
         String uri = req.getRequestURI();//index.html >>/desktop/index.html  >>/mobile/index.html
         String userAgent = req.getHeader("user-agent");
         String targetUri = null;
+        //uri中有了头地址则向请求向后传递
+        if (uri.startsWith("/mobile") ||uri.startsWith("/desktop")){
+            filterChain.doFilter(servletRequest,servletResponse);
+        }else {
         //移动端的URI
         if(userAgent.toLowerCase().indexOf("android")!=-1 ||userAgent.toLowerCase().indexOf("iphone")!=-1){
             targetUri = "/mobile"+uri;
@@ -32,6 +36,7 @@ public class DeviceAdapterFilter implements Filter {
         //请求重定向
         resp.sendRedirect(targetUri);
 
+    }
     }
 
     @Override
