@@ -19,6 +19,9 @@ public class CharacterEncodingFilter implements Filter {
         //为请求和响应设置过滤字符集为UTF-8
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html;charset=utf-8");
+        //将响应向后传递
+        filterChain.doFilter(servletRequest,servletResponse);
+
     }
 
     @Override
