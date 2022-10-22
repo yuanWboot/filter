@@ -6,9 +6,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class CharacterEncodingFilter implements Filter {
+    private String encoding;
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-
+         encoding = filterConfig.getInitParameter("encoding");
+        System.out.println("Encoding:"+encoding);
     }
 
     @Override
@@ -17,8 +19,8 @@ public class CharacterEncodingFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest)servletRequest;
         HttpServletResponse resp =(HttpServletResponse) servletResponse;
         //为请求和响应设置过滤字符集为UTF-8
-        req.setCharacterEncoding("UTF-8");
-        resp.setContentType("text/html;charset=utf-8");
+        req.setCharacterEncoding(encoding);
+        resp.setContentType("text/html;charset="+encoding);
         //将响应向后传递
         filterChain.doFilter(servletRequest,servletResponse);
 
