@@ -17,8 +17,16 @@ public class DeviceAdapterFilter implements Filter {
         //将Servlet强转为http接口
         HttpServletRequest req = (HttpServletRequest)servletRequest;
         HttpServletResponse resp = (HttpServletResponse)servletResponse;
-        String uri = req.getRequestURI();
+        String uri = req.getRequestURI();//index.html >>/desktop/index.html  >>/mobile/index.html
         String userAgent = req.getHeader("user-agent");
+        String targetUri = null;
+        //移动端的URI
+        if(userAgent.toLowerCase().indexOf("android")!=-1 ||userAgent.toLowerCase().indexOf("iphone")!=-1){
+            targetUri = "/mobile"+uri;
+        }else {
+            //桌面端的URI
+            targetUri = "/desktop"+uri;
+        }
 
     }
 
