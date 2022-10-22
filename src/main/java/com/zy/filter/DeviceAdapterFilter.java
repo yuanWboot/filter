@@ -23,10 +23,14 @@ public class DeviceAdapterFilter implements Filter {
         //移动端的URI
         if(userAgent.toLowerCase().indexOf("android")!=-1 ||userAgent.toLowerCase().indexOf("iphone")!=-1){
             targetUri = "/mobile"+uri;
+            System.out.println("移动端设备正在访问，重新跳转URI："+targetUri);
         }else {
             //桌面端的URI
             targetUri = "/desktop"+uri;
+            System.out.println("桌面端设备正在访问，重新跳转URI："+targetUri);
         }
+        //请求重定向
+        resp.sendRedirect(targetUri);
 
     }
 
